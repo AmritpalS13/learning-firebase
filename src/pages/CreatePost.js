@@ -7,11 +7,10 @@ import { Box, Button, TextField } from '@mui/material';
 
 function CreatePost( { isAuth }) {
     const [name, setName] = useState("");
-
     const postCollectionRef = collection(db, "posts");
     const nav = useNavigate();
     const createPost = async () => {
-        await addDoc(postCollectionRef, {name, author: {name: auth.currentUser.displayName, id: auth.currentUser.uid} });
+        await addDoc(postCollectionRef, {name, author: {name: auth.currentUser.displayName, id: auth.currentUser.uid, likedPosts: []} });
         nav('/');
     }
     useEffect(() => {
