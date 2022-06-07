@@ -29,6 +29,7 @@ const App = () => {
           <>
             <Link to='/createpost' isAuth={isAuth}>Create Post</Link>
             <button onClick={signUserOut}>Log Out</button>
+            <Home test={auth} />
           </>
         }
       </nav>
